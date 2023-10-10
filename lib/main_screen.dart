@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:o3d/o3d.dart';
 
 class MainScreen extends StatefulWidget {
   const MainScreen({super.key});
@@ -9,6 +10,7 @@ class MainScreen extends StatefulWidget {
 
 class _MainScreenState extends State<MainScreen> {
   int index = 0;
+  O3DController o3dController = O3DController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -19,7 +21,13 @@ class _MainScreenState extends State<MainScreen> {
         centerTitle: true,
         elevation: 0.0,
       ),
-      body: Container(),
+      body: O3D(
+        src: 'assets/disney_style_character.glb',
+        controller: o3dController,
+        autoPlay: true,
+        ar: false,
+        autoRotate: false,
+      ),
       bottomNavigationBar: BottomNavigationBar(
         showSelectedLabels: false,
         showUnselectedLabels: false,
