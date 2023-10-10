@@ -5,6 +5,14 @@ class MainScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold();
+    return Scaffold(
+      backgroundColor: Colors.white54,
+      appBar: AppBar(
+        backgroundColor: Colors.white54,
+        title: const Text('3D Model'),
+        centerTitle: true,
+        elevation: 0.0,
+      ),
+    );
   }
 }
