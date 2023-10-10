@@ -14,7 +14,7 @@ class _MainScreenState extends State<MainScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white54,
+      backgroundColor: Colors.greenAccent,
       appBar: AppBar(
         backgroundColor: Colors.white54,
         title: const Text('3D Model'),
@@ -27,6 +27,8 @@ class _MainScreenState extends State<MainScreen> {
         autoPlay: true,
         ar: false,
         autoRotate: false,
+        cameraTarget: CameraTarget(0, 2, 1),
+        cameraOrbit: CameraOrbit(0, 90, 10),
       ),
       bottomNavigationBar: BottomNavigationBar(
         showSelectedLabels: false,
@@ -35,6 +37,17 @@ class _MainScreenState extends State<MainScreen> {
         onTap: (value) {
           setState(() {
             index = value;
+
+            if (index == 0) {
+              o3dController.cameraTarget(0, 2, 1);
+              o3dController.cameraOrbit(0, 90, 10);
+            } else if (index == 1) {
+              o3dController.cameraTarget(0, 1.8, 0);
+              o3dController.cameraOrbit(-90, 90, 10);
+            } else {
+              o3dController.cameraTarget(0, 3, 0);
+              o3dController.cameraOrbit(0, 90, 0);
+            }
           });
         },
         items: const [
